@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PT Tirta Investama | Company Profile</title>
+
+    <meta name="description"
+          content="Website profil PT Tirta Investama, sejarah, produk AQUA, lokasi perusahaan, dan informasi perusahaan.">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+          rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <style>
+
+        /* ======================================
+           WARNA DAN FONT
+        ====================================== */
+
+        :root {
+            --blue-light: #c0e6fd;
+            --blue-soft: #80aad3;
+            --blue-medium: #5b86b6;
+            --blue-primary: #3f6593;
+            --blue-navy: #1b3554;
+            --blue-dark: #000f22;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: "Fraunces", serif;
+            background: white;
+            color: var(--blue-navy);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ======================================
+           NAVBAR
+        ====================================== */
+
+        .navbar-custom {
+            background: white;
+            min-height: 110px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 20px rgba(0,15,34,0.08);
+        }
+
+        .navbar-container {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 35px;
+            gap: 25px;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .nav-right {
+            justify-content: flex-end;
+        }
+
+        .nav-left a,
+        .nav-right a {
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--blue-navy);
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-left a:hover,
+        .nav-right a:hover {
+            color: var(--blue-medium);
+        }
+
+        .nav-logo {
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            width: 105px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: var(--blue-navy);
+        }
+
+        /* ======================================
+           HERO / BERANDA
+        ====================================== */
+
+        .hero {
+            position: relative;
+            min-height: 650px;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0,15,34,0.78) 0%,
+                    rgba(27,53,84,0.45) 45%,
+                    rgba(27,53,84,0.15) 100%
+                ),
+                url("assets/img/gunung.webp");
+
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin-left: 7%;
+            padding: 90px 0 140px;
+            color: white;
+        }
+
+        .hero-label {
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: var(--blue-light);
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 68px);
+            font-weight: 900;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 570px;
+            color: #f1f8ff;
+            margin-bottom: 35px;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--blue-primary);
+            color: white;
+            padding: 17px 30px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--blue-navy);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-button i {
+            font-size: 20px;
+        }
+
+        .hero-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .hero-wave svg {
+            display: block;
+            width: 100%;
+            height: 110px;
+        }
+
+        /* ======================================
+           SECTION UMUM
+        ====================================== */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-light {
+            background: #f2f8fd;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            color: var(--blue-primary);
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 39px);
+            margin-top: 12px;
+            color: var(--blue-navy);
+            font-weight: 800;
+        }
+
+        .section-heading p {
+            max-width: 700px;
+            margin: 15px auto;
+            color: #526782;
+        }
+
+        .section-heading::after {
+            content: "";
+            width: 75px;
+            height: 4px;
+            background: var(--blue-medium);
+            display: block;
+            margin: 25px auto 0;
+            border-radius: 10px;
+        }
+
+        /* ======================================
+           TENTANG PERUSAHAAN
+        ====================================== */
+
+        .about-image {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 20px 20px 0 var(--blue-light);
+        }
+
+        .about-content h3 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            color: #526782;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .btn-blue {
+            display: inline-block;
+            background: var(--blue-primary);
+            color: white;
+            padding: 13px 30px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .btn-blue:hover {
+            background: var(--blue-navy);
+            color: white;
+        }
+
+        /* ======================================
+           SEJARAH PERUSAHAAN
+        ====================================== */
+
+        .history-card {
+            background: white;
+            border-left: 5px solid var(--blue-medium);
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 7px 25px rgba(0,15,34,0.05);
+            transition: 0.3s;
+        }
+
+        .history-card:hover {
+            transform: translateX(7px);
+        }
+
+        .history-card h3 {
+            color: var(--blue-primary);
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .history-card p {
+            color: #526782;
+            margin: 0;
+        }
+
+        /* ======================================
+           PRODUK
+        ====================================== */
+
+        .product-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 6px 25px rgba(0,15,34,0.06);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,15,34,0.15);
+        }
+
+        .product-image {
+            height: 230px;
+            background: linear-gradient(
+                135deg,
+                var(--blue-light),
+                var(--blue-soft)
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image i {
+            font-size: 100px;
+            color: var(--blue-navy);
+        }
+
+        .product-content {
+            padding: 30px;
+        }
+
+        .product-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .product-content p {
+            color: #526782;
+            font-size: 15px;
+        }
+
+        .product-button {
+            background: var(--blue-primary);
+            color: white;
+            border: 0;
+            padding: 12px 25px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .product-button:hover {
+            background: var(--blue-navy);
+        }
+
+        /* ======================================
+           VISI MISI
+        ====================================== */
+
+        .vision-mission {
+            background: linear-gradient(
+                135deg,
+                var(--blue-dark),
+                var(--blue-navy),
+                var(--blue-primary)
+            );
+        }
+
+        .vision-mission .section-heading h2,
+        .vision-mission .section-heading span,
+        .vision-mission .section-heading p {
+            color: white;
+        }
+
+        .vision-card {
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            height: 100%;
+            color: white;
+        }
+
+        .vision-card i {
+            font-size: 48px;
+            color: var(--blue-light);
+        }
+
+        .vision-card h3 {
+            margin-top: 20px;
+            color: white;
+        }
+
+        .vision-card p,
+        .vision-card li {
+            color: #e5f3ff;
+        }
+
+        /* ======================================
+           SERTIFIKASI
+        ====================================== */
+
+        .cert-card {
+            background: white;
+            border-radius: 14px;
+            padding: 35px 25px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 5px 25px rgba(0,15,34,0.06);
+            transition: 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .cert-card i {
+            font-size: 55px;
+            color: var(--blue-primary);
+        }
+
+        .cert-card h3 {
+            font-size: 19px;
+            margin: 20px 0 15px;
+        }
+
+        .cert-card p {
+            color: #526782;
+            font-size: 14px;
+        }
+
+        /* ======================================
+           STRUKTUR ORGANISASI
+        ====================================== */
+
+        .organization-box {
+            background: white;
+            border: 2px solid var(--blue-soft);
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        .organization-box h3 {
+            font-size: 18px;
+        }
+
+        .organization-box p {
+            font-size: 14px;
+            margin: 0;
+            color: #526782;
+        }
+
+        .organization-main {
+            background: var(--blue-navy);
+            color: white;
+        }
+
+        .organization-main h3,
+        .organization-main p {
+            color: white;
+        }
+
+        .organization-line {
+            width: 3px;
+            height: 50px;
+            background: var(--blue-primary);
+            margin: auto;
+        }
+
+        /* ======================================
+           MAPS
+        ====================================== */
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,15,34,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 470px;
+            border: 0;
+            display: block;
+        }
+
+        /* ======================================
+           MEDIA SOSIAL
+        ====================================== */
+
+        .social-card {
+            display: block;
+            text-align: center;
+            background: white;
+            padding: 35px 20px;
+            height: 100%;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,15,34,0.05);
+            transition: 0.3s;
+            color: var(--blue-navy);
+        }
+
+        .social-card:hover {
+            transform: translateY(-7px);
+            color: var(--blue-primary);
+        }
+
+        .social-card i {
+            font-size: 45px;
+            color: var(--blue-primary);
+        }
+
+        .social-card h3 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* ======================================
+           FOOTER
+        ====================================== */
+
+        .footer {
+            background: var(--blue-dark);
+            color: white;
+            padding: 70px 0 25px;
+        }
+
+        .footer h3,
+        .footer h4 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .footer p,
+        .footer a {
+            color: var(--blue-light);
+            font-size: 15px;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin-top: 45px;
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        /* ======================================
+           RESPONSIVE
+        ====================================== */
+
+        @media(max-width:1100px) {
+
+            .nav-left,
+            .nav-right {
+                gap: 12px;
+            }
+
+            .nav-left a,
+            .nav-right a {
+                font-size: 10px;
+            }
+        }
+
+        @media(max-width:991px) {
+
+            .navbar-container {
+                padding: 15px 25px;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-left,
+            .nav-right {
+                display: none;
+            }
+
+            .navbar-custom.menu-open .nav-left,
+            .navbar-custom.menu-open .nav-right {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                gap: 0;
+            }
+
+            .navbar-custom.menu-open .navbar-container {
+                flex-wrap: wrap;
+            }
+
+            .navbar-custom.menu-open .nav-left {
+                order: 3;
+            }
+
+            .navbar-custom.menu-open .nav-right {
+                order: 4;
+            }
+
+            .nav-left a,
+            .nav-right a {
+                font-size: 13px;
+                padding: 12px 15px;
+                border-bottom: 1px solid #edf2f7;
+            }
+
+            .nav-logo {
+                margin-right: auto;
+            }
+
+            .mobile-toggle {
+                order: 2;
+            }
+
+            .hero {
+                min-height: 570px;
+            }
+
+            .hero-content {
+                margin: 0 8%;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+        }
+
+        @media(max-width:576px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-content {
+                padding: 75px 0 130px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+
+            .vision-card {
+                padding: 25px;
+            }
+
+            .map-container iframe {
+                height: 350px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ======================================
+     NAVBAR
+====================================== -->
+
+<header class="navbar-custom" id="navbar">
+
+    <div class="navbar-container">
+
+        <nav class="nav-left" aria-label="Navigasi utama kiri">
+
+            <a href="#beranda">Beranda</a>
+
+            <a href="#tentang">Tentang Kami</a>
+
+            <a href="#produk">Produk</a>
+
+            <a href="#visi-misi">Visi Misi</a>
+
+        </nav>
+
+
+        <a href="#beranda" class="nav-logo">
+
+            <img src="assets/img/logoaqua.jpg"
+                 alt="Logo AQUA">
+
+        </a>
+
+
+        <nav class="nav-right" aria-label="Navigasi utama kanan">
+
+            <a href="#sertifikasi">Sertifikasi</a>
+
+            <a href="#organisasi">Struktur Organisasi</a>
+
+            <a href="#lokasi">Lokasi</a>
+
+            <a href="#sosial">Media Sosial</a>
+
+        </nav>
+
+
+        <button class="mobile-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Buka menu"
+                aria-expanded="false">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ======================================
+     1. BERANDA
+====================================== -->
+
+<section id="beranda" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+
+            PT TIRTA INVESTAMA
+
+        </div>
+
+
+        <h1>
+
+            Kebaikan Air<br>
+            untuk Kehidupan
+
+        </h1>
+
+
+        <p>
+
+            Mengenal PT Tirta Investama sebagai
+            bagian dari perjalanan Danone-AQUA
+            dalam menghadirkan air minum dalam
+            kemasan di Indonesia.
+
+        </p>
+
+
+        <a href="#tentang" class="hero-button">
+
+            PELAJARI LEBIH LANJUT
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+
+    <!-- WAVE BAWAH HERO -->
+
+    <div class="hero-wave">
+
+        <svg viewBox="0 0 1440 150"
+             preserveAspectRatio="none">
+
+            <path fill="#3f6593"
+                  d="M0,55 C300,140 600,150 900,100 C1150,60 1300,70 1440,40 L1440,150 L0,150 Z">
+            </path>
+
+            <path fill="#ffffff"
+                  d="M0,115 C400,170 900,120 1440,100 L1440,150 L0,150 Z">
+            </path>
+
+        </svg>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     2. TENTANG PERUSAHAAN
+====================================== -->
+
+<section id="tentang" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>COMPANY PROFILE</span>
+
+            <h2>Mengenal PT Tirta Investama</h2>
+
+            <p>
+
+                Informasi mengenai perusahaan
+                dan perjalanan industri air minum
+                dalam kemasan di Indonesia.
+
+            </p>
+
+        </div>
+
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img src="assets/img/gunung.webp"
+                     class="about-image"
+                     alt="Ilustrasi pegunungan dan sumber daya alam"
+                     loading="lazy">
+
+            </div>
+
+
+            <div class="col-lg-6 about-content">
+
+                <h3>
+
+                    Komitmen terhadap
+                    Kualitas dan Keberlanjutan
+
+                </h3>
+
+
+                <p>
+
+                    PT Tirta Investama merupakan
+                    perusahaan yang bergerak dalam
+                    industri air minum dalam kemasan
+                    (AMDK) di Indonesia.
+
+                </p>
+
+
+                <p>
+
+                    Perusahaan berkaitan dengan
+                    kegiatan usaha Danone-AQUA,
+                    salah satu merek air minum
+                    dalam kemasan yang dikenal
+                    masyarakat Indonesia.
+
+                </p>
+
+
+                <p>
+
+                    Kegiatan perusahaan berhubungan
+                    dengan produksi air minum dalam
+                    kemasan, pengendalian kualitas,
+                    serta pengelolaan sumber daya
+                    yang mendukung operasional.
+
+                </p>
+
+
+                <a href="#sejarah" class="btn-blue mt-3">
+
+                    Lihat Sejarah Perusahaan
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     SEJARAH PERUSAHAAN
+====================================== -->
+
+<section id="sejarah" class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>PERJALANAN PERUSAHAAN</span>
+
+            <h2>Sejarah Perusahaan</h2>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <h3>1973 — Awal Berdirinya AQUA</h3>
+
+            <p>
+
+                Sejarah AQUA dimulai melalui
+                pendirian PT Golden Mississippi
+                oleh Tirto Utomo pada tahun 1973.
+
+            </p>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <h3>1974 — Produksi Komersial</h3>
+
+            <p>
+
+                AQUA mulai memproduksi dan
+                memasarkan air minum dalam
+                kemasan secara komersial.
+
+            </p>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <h3>1998 — Kemitraan dengan Danone</h3>
+
+            <p>
+
+                AQUA menjalin kemitraan strategis
+                dengan Danone untuk mendukung
+                perkembangan kegiatan usaha.
+
+            </p>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <h3>Perkembangan PT Tirta Investama</h3>
+
+            <p>
+
+                PT Tirta Investama menjadi salah
+                satu perusahaan yang menjalankan
+                kegiatan usaha Danone-AQUA
+                di Indonesia.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     3. PRODUK
+====================================== -->
+
+<section id="produk" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>PRODUK AQUA</span>
+
+            <h2>Produk Air Minum Dalam Kemasan</h2>
+
+            <p>
+
+                Berbagai pilihan ukuran kemasan
+                air minum AQUA untuk kebutuhan
+                sehari-hari.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4" id="productContainer">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     4. VISI DAN MISI
+====================================== -->
+
+<section id="visi-misi" class="section vision-mission">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ARAH DAN KOMITMEN</span>
+
+            <h2>Visi dan Misi</h2>
+
+            <p>
+                Gambaran arah pengembangan dan
+                komitmen perusahaan.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="vision-card">
+
+                    <i class="bi bi-eye"></i>
+
+                    <h3>Visi</h3>
+
+                    <p>
+
+                        Menjadi perusahaan yang
+                        berkomitmen menghadirkan
+                        produk air minum berkualitas
+                        dengan memperhatikan
+                        keberlanjutan sumber daya alam
+                        dan kesejahteraan masyarakat.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="vision-card">
+
+                    <i class="bi bi-bullseye"></i>
+
+                    <h3>Misi</h3>
+
+                    <ul>
+
+                        <li>
+                            Mendukung penyediaan
+                            air minum berkualitas.
+                        </li>
+
+                        <li>
+                            Memperhatikan standar
+                            keamanan dan mutu produk.
+                        </li>
+
+                        <li>
+                            Mendukung pengelolaan
+                            sumber daya air secara
+                            bertanggung jawab.
+                        </li>
+
+                        <li>
+                            Berkontribusi terhadap
+                            keberlanjutan lingkungan
+                            dan masyarakat.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center text-white mt-4 small">
+            Visi dan misi di atas merupakan contoh
+            redaksi untuk website dan perlu disesuaikan
+            dengan pernyataan resmi perusahaan.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     5. SERTIFIKASI
+====================================== -->
+
+<section id="sertifikasi" class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>STANDAR INDUSTRI</span>
+
+            <h2>Sertifikasi dan Standar</h2>
+
+            <p>
+
+                Beberapa standar yang relevan
+                dengan industri air minum dalam
+                kemasan.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-patch-check"></i>
+
+                    <h3>ISO 9001</h3>
+
+                    <p>
+
+                        Standar sistem manajemen
+                        mutu.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <h3>ISO 22000</h3>
+
+                    <p>
+
+                        Standar sistem manajemen
+                        keamanan pangan.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-globe-asia-australia"></i>
+
+                    <h3>ISO 14001</h3>
+
+                    <p>
+
+                        Standar sistem manajemen
+                        lingkungan.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-award"></i>
+
+                    <h3>SNI</h3>
+
+                    <p>
+
+                        Standar Nasional Indonesia
+                        yang berkaitan dengan
+                        persyaratan mutu produk.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-clipboard-check"></i>
+
+                    <h3>BPOM</h3>
+
+                    <p>
+
+                        Informasi izin edar
+                        dan pengawasan produk pangan.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="cert-card">
+
+                    <i class="bi bi-check-circle"></i>
+
+                    <h3>Sertifikasi Halal</h3>
+
+                    <p>
+
+                        Sertifikasi kesesuaian produk
+                        dengan persyaratan jaminan
+                        produk halal.
+
+                    </p>
+
+                    <span class="badge bg-secondary">
+                        Perlu Verifikasi
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     6. STRUKTUR ORGANISASI
+====================================== -->
+
+<section id="organisasi" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ORGANISASI PERUSAHAAN</span>
+
+            <h2>Struktur Organisasi</h2>
+
+            <p>
+
+                Ilustrasi pembagian fungsi
+                organisasi dalam mendukung
+                kegiatan operasional perusahaan.
+
+            </p>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5">
+
+                <div class="organization-box organization-main">
+
+                    <h3>Manajemen Perusahaan</h3>
+
+                    <p>
+                        Pengelolaan dan pengambilan keputusan
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="organization-line"></div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5">
+
+                <div class="organization-box">
+
+                    <h3>Manajemen Operasional</h3>
+
+                    <p>
+                        Koordinasi kegiatan operasional
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="organization-line"></div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="organization-box">
+
+                    <h3>Produksi</h3>
+
+                    <p>
+                        Pengelolaan proses produksi
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="organization-box">
+
+                    <h3>Quality Control</h3>
+
+                    <p>
+                        Pengawasan kualitas produk
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="organization-box">
+
+                    <h3>Human Resources</h3>
+
+                    <p>
+                        Pengelolaan sumber daya manusia
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="organization-box">
+
+                    <h3>Maintenance</h3>
+
+                    <p>
+                        Pemeliharaan mesin dan fasilitas
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center text-muted small mt-4">
+            Bagan ini bersifat ilustratif dan bukan
+            struktur organisasi resmi PT Tirta Investama.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     7. MAPS PERUSAHAAN
+====================================== -->
+
+<section id="lokasi" class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>LOKASI PERUSAHAAN</span>
+
+            <h2>Temukan Lokasi Kami</h2>
+
+            <p>
+
+                Peta pencarian lokasi
+                PT Tirta Investama Pabrik Klaten,
+                Jawa Tengah.
+
+            </p>
+
+        </div>
+
+
+        <div class="map-container">
+
+            <iframe
+
+                src="https://www.google.com/maps?q=PT%20Tirta%20Investama%20Pabrik%20Klaten&output=embed"
+
+                loading="lazy"
+
+                referrerpolicy="no-referrer-when-downgrade"
+
+                title="Google Maps PT Tirta Investama">
+
+            </iframe>
+
+        </div>
+
+
+        <div class="text-center mt-4">
+
+            <a href="https://www.google.com/maps/search/?api=1&query=PT+Tirta+Investama+Pabrik+Klaten"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-blue">
+
+                <i class="bi bi-geo-alt me-2"></i>
+
+                BUKA GOOGLE MAPS
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     8. MEDIA SOSIAL
+====================================== -->
+
+<section id="sosial" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>MEDIA SOSIAL</span>
+
+            <h2>Terhubung dengan AQUA</h2>
+
+            <p>
+
+                Temukan informasi mengenai
+                produk dan kegiatan AQUA melalui
+                berbagai platform digital.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="https://www.instagram.com/explore/search/keyword/?q=aqua"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-card">
+
+                    <i class="bi bi-instagram"></i>
+
+                    <h3>Instagram</h3>
+
+                    <p>Cari akun AQUA</p>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="https://www.facebook.com/search/top?q=danone%20aqua"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-card">
+
+                    <i class="bi bi-facebook"></i>
+
+                    <h3>Facebook</h3>
+
+                    <p>Cari informasi AQUA</p>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="https://www.youtube.com/results?search_query=danone+aqua+indonesia"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-card">
+
+                    <i class="bi bi-youtube"></i>
+
+                    <h3>YouTube</h3>
+
+                    <p>Cari video AQUA</p>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <a href="https://www.aqua.co.id/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-card">
+
+                    <i class="bi bi-globe"></i>
+
+                    <h3>Website</h3>
+
+                    <p>Kunjungi website AQUA</p>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     FOOTER
+====================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <h3>PT Tirta Investama</h3>
+
+                <p>
+
+                    Website profil perusahaan yang
+                    menyajikan informasi mengenai
+                    sejarah, kegiatan usaha, produk,
+                    dan lokasi PT Tirta Investama.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h4>Menu Website</h4>
+
+                <p><a href="#beranda">Beranda</a></p>
+
+                <p><a href="#tentang">Tentang Perusahaan</a></p>
+
+                <p><a href="#sejarah">Sejarah</a></p>
+
+                <p><a href="#produk">Produk</a></p>
+
+                <p><a href="#visi-misi">Visi Misi</a></p>
+
+                <p><a href="#sertifikasi">Sertifikasi</a></p>
+
+                <p><a href="#organisasi">Struktur Organisasi</a></p>
+
+                <p><a href="#lokasi">Lokasi</a></p>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h4>Informasi</h4>
+
+                <p>
+
+                    <i class="bi bi-geo-alt me-2"></i>
+
+                    Klaten, Jawa Tengah
+
+                </p>
+
+
+                <p>
+
+                    <i class="bi bi-globe me-2"></i>
+
+                    <a href="https://www.aqua.co.id/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        www.aqua.co.id
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © <span id="year"></span>
+                PT Tirta Investama.
+                All Rights Reserved.
+
+            </p>
+
+            <small>
+                Website profil untuk keperluan informasi.
+                Bukan situs resmi PT Tirta Investama.
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ======================================
+     MODAL DETAIL PRODUK
+====================================== -->
+
+<div class="modal fade"
+     id="productModal"
+     tabindex="-1"
+     aria-labelledby="modalProductTitle"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title"
+                    id="modalProductTitle">
+
+                    Detail Produk
+
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Tutup">
+
+                </button>
+
+            </div>
+
+
+            <div class="modal-body p-4">
+
+                <div class="row align-items-center g-4">
+
+                    <div class="col-md-5">
+
+                        <div class="product-image rounded">
+
+                            <i class="bi bi-droplet-half"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-7">
+
+                        <h3 id="modalProductName"></h3>
+
+                        <p id="modalProductDescription"></p>
+
+                        <hr>
+
+                        <p>
+                            <strong>Ukuran Kemasan:</strong>
+                            <span id="modalProductSize"></span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================
+     JAVASCRIPT
+====================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    /* =====================================
+       TAHUN FOOTER
+    ===================================== */
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+
+    /* =====================================
+       NAVBAR MOBILE
+    ===================================== */
+
+    const navbar = document.getElementById("navbar");
+
+    const menuToggle = document.getElementById("menuToggle");
+
+    const mobileIcon = menuToggle.querySelector("i");
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen = navbar.classList.toggle("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+        mobileIcon.className = isOpen
+            ? "bi bi-x"
+            : "bi bi-list";
+
+    });
+
+
+    document.querySelectorAll(".nav-left a, .nav-right a")
+        .forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                navbar.classList.remove("menu-open");
+
+                menuToggle.setAttribute("aria-expanded", "false");
+
+                mobileIcon.className = "bi bi-list";
+
+            });
+
+        });
+
+
+
+    /* =====================================
+       DATA PRODUK
+    ===================================== */
+
+    const products = [
+
+        {
+            name: "AQUA Gelas 220 mL",
+            size: "220 mL",
+            description:
+                "AQUA kemasan gelas merupakan pilihan air minum dalam kemasan yang praktis untuk berbagai kegiatan, seperti pertemuan, acara, dan kebutuhan konsumsi."
+        },
+
+        {
+            name: "AQUA Botol 330 mL",
+            size: "330 mL",
+            description:
+                "AQUA botol 330 mL merupakan pilihan kemasan berukuran kecil yang praktis dan mudah dibawa untuk berbagai aktivitas."
+        },
+
+        {
+            name: "AQUA Botol 600 mL",
+            size: "600 mL",
+            description:
+                "AQUA botol 600 mL merupakan salah satu variasi kemasan air minum untuk memenuhi kebutuhan hidrasi sehari-hari."
+        },
+
+        {
+            name: "AQUA Botol 750 mL",
+            size: "750 mL",
+            description:
+                "AQUA botol 750 mL merupakan pilihan kemasan air minum berkapasitas sedang untuk menemani berbagai kegiatan."
+        },
+
+        {
+            name: "AQUA Botol 1.500 mL",
+            size: "1.500 mL",
+            description:
+                "AQUA botol 1.500 mL menyediakan air minum dalam kemasan berkapasitas lebih besar untuk kebutuhan konsumsi."
+        },
+
+        {
+            name: "AQUA Galon 19 Liter",
+            size: "19 Liter",
+            description:
+                "AQUA galon 19 liter merupakan pilihan kemasan berkapasitas besar yang digunakan untuk memenuhi kebutuhan air minum di rumah dan lingkungan kerja."
+        }
+
+    ];
+
+
+
+    /* =====================================
+       MENAMPILKAN KARTU PRODUK
+    ===================================== */
+
+    const productContainer =
+        document.getElementById("productContainer");
+
+
+    productContainer.innerHTML = products.map((product, index) => `
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <i class="bi bi-droplet-half"></i>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <h3>${product.name}</h3>
+
+                    <p>
+                        ${product.description.substring(0, 100)}...
+                    </p>
+
+
+                    <button class="product-button"
+                            onclick="showProduct(${index})">
+
+                        LIHAT DETAIL
+
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+
+
+    /* =====================================
+       MODAL DETAIL PRODUK
+    ===================================== */
+
+    function showProduct(index) {
+
+        const product = products[index];
+
+        document.getElementById("modalProductName").textContent =
+            product.name;
+
+        document.getElementById("modalProductTitle").textContent =
+            product.name;
+
+        document.getElementById("modalProductDescription").textContent =
+            product.description;
+
+        document.getElementById("modalProductSize").textContent =
+            product.size;
+
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("productModal")
+        );
+
+        modal.show();
+
+    }
+
+</script>
+
+</body>
+</html>

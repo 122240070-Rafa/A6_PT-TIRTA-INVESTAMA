@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detail Produk | PT Tirta Investama</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+/* WARNA */
+:root{
+    --light:#C0E6FD;
+    --soft:#80AAD3;
+    --primary:#3F6593;
+    --navy:#1B3554;
+    --dark:#000F22;
+    --bg:#F3F9FD;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+    font-family:"Inter",sans-serif;
+    color:var(--navy);
+    line-height:1.8;
+    background:white;
+}
+
+h1,h2,h3,h4{
+    font-family:"Montserrat",sans-serif;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    border:0;
+    background:none;
+    cursor:pointer;
+    font:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* NAVBAR */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:white;
+    box-shadow:0 3px 18px rgba(0,15,34,.08);
+}
+
+.nav-inner{
+    max-width:1500px;
+    min-height:95px;
+    margin:auto;
+    padding:10px 5%;
+
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:15px;
+}
+
+.brand{
+    font-family:"Montserrat",sans-serif;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.nav-logo{justify-self:center}
+
+.nav-logo img{
+    width:110px;
+    height:75px;
+    display:block;
+    object-fit:contain;
+}
+
+.menu-btn{
+    justify-self:end;
+    font-size:35px;
+    color:var(--navy);
+    line-height:1;
+}
+
+/* OVERLAY */
+.overlay{
+    position:fixed;
+    inset:0;
+    z-index:1100;
+    background:rgba(0,15,34,.6);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    top:0;
+    right:0;
+    z-index:1200;
+
+    width:480px;
+    max-width:92%;
+    height:100dvh;
+
+    background:white;
+    overflow-y:auto;
+
+    transform:translateX(105%);
+    transition:transform .35s ease;
+}
+
+.sidebar.show{
+    transform:translateX(0);
+}
+
+.sidebar-top{
+    height:100px;
+    padding:20px 35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+.close-btn{
+    font-size:30px;
+    color:var(--navy);
+}
+
+.sidebar-links{
+    display:flex;
+    flex-direction:column;
+    padding:0 40px 30px;
+}
+
+.sidebar-links a{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    min-height:76px;
+    padding:15px 0;
+
+    border-bottom:1px solid #E5E7EB;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:18px;
+    font-weight:700;
+    color:#333;
+}
+
+.sidebar-links a:hover,
+.sidebar-links a.active{
+    color:var(--primary);
+}
+
+.sidebar-bottom{
+    background:var(--navy);
+    padding:22px 40px;
+}
+
+.sidebar-bottom a{
+    min-height:67px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:1px solid #ffffff40;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:14px;
+    font-weight:600;
+    color:white;
+}
+
+.sidebar-bottom a:last-child{
+    border-bottom:none;
+}
+
+/* BANNER */
+.page-banner{
+    position:relative;
+    min-height:445px;
+
+    display:flex;
+    align-items:center;
+
+    background:var(--dark);
+    overflow:hidden;
+}
+
+.banner-image{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.banner-overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,15,34,.92),
+        rgba(27,53,84,.72),
+        rgba(63,101,147,.25)
+    );
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    padding:90px 0;
+
+    color:white;
+}
+
+.banner-label{
+    display:block;
+    color:var(--light);
+
+    font-family:"Montserrat",sans-serif;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+}
+
+.banner-content h1{
+    font-size:clamp(37px,5vw,62px);
+    font-weight:900;
+    line-height:1.2;
+
+    margin:30px 0;
+}
+
+.banner-content p{
+    font-size:18px;
+    max-width:700px;
+}
+
+.breadcrumb{
+    margin-top:28px;
+    font-size:15px;
+}
+
+.breadcrumb a{
+    color:var(--light);
+}
+
+/* DETAIL PRODUK */
+.detail-section{
+    padding:100px 0 110px;
+    background:var(--bg);
+}
+
+.detail-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:75px;
+}
+
+/* AREA GAMBAR */
+.detail-image-box{
+    min-height:500px;
+    padding:45px;
+
+    background:linear-gradient(
+        135deg,
+        #F1FAFF,
+        #C0E6FD
+    );
+
+    border:1px solid #D9E8F4;
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 14px 35px rgba(0,15,34,.08);
+}
+
+.detail-image-box img{
+    display:block;
+    max-width:100%;
+    max-height:430px;
+
+    width:auto;
+    height:auto;
+    object-fit:contain;
+
+    filter:drop-shadow(
+        0 12px 13px rgba(0,15,34,.18)
+    );
+}
+
+/* INFORMASI DETAIL */
+.detail-label{
+    display:block;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:3px;
+
+    color:var(--primary);
+    margin-bottom:17px;
+}
+
+.detail-content h2{
+    font-size:clamp(32px,4vw,46px);
+    font-weight:800;
+    line-height:1.3;
+
+    margin-bottom:24px;
+}
+
+.detail-description{
+    color:#526782;
+    font-size:16px;
+    line-height:2;
+    margin-bottom:28px;
+}
+
+.detail-subheading{
+    font-size:20px;
+    font-weight:800;
+    margin:25px 0 15px;
+}
+
+/* INFORMASI UKURAN */
+.detail-information{
+    display:grid;
+    gap:15px;
+    margin-bottom:32px;
+}
+
+.detail-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    padding:17px 20px;
+
+    background:white;
+    border:1px solid #DFEAF4;
+    border-radius:12px;
+}
+
+.detail-row i{
+    flex-shrink:0;
+    font-size:25px;
+    color:var(--primary);
+}
+
+.detail-row span{
+    display:block;
+    color:#6B7E91;
+    font-size:12px;
+    margin-bottom:4px;
+}
+
+.detail-row strong{
+    display:block;
+    font-family:"Montserrat",sans-serif;
+    font-size:15px;
+}
+
+/* TOMBOL KEMBALI */
+.back-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+
+    padding:15px 25px;
+
+    background:var(--primary);
+    color:white;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:13px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.back-button:hover{
+    background:var(--navy);
+}
+
+/* FOOTER */
+.footer{
+    background:var(--dark);
+    color:white;
+    padding:52px 5% 35px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:1fr 1.2fr .85fr;
+    gap:40px;
+}
+
+.footer h3{
+    font-size:19px;
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer a{
+    color:var(--light);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.footer-nav{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px 17px;
+}
+
+.footer a:hover{
+    color:white;
+}
+
+.help-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+    .detail-layout{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+    .nav-inner{
+        min-height:75px;
+        padding:8px 18px;
+    }
+
+    .brand{
+        font-size:10px;
+        max-width:120px;
+    }
+
+    .nav-logo img{
+        width:85px;
+        height:60px;
+    }
+
+    .menu-btn{
+        font-size:30px;
+    }
+
+    .sidebar-links{
+        padding:0 25px 25px;
+    }
+
+    .sidebar-links a{
+        min-height:70px;
+        font-size:16px;
+    }
+
+    .sidebar-bottom{
+        padding:20px 25px;
+    }
+
+    .page-banner{
+        min-height:330px;
+    }
+
+    .banner-content{
+        padding:60px 0;
+    }
+
+    .banner-content h1{
+        margin:25px 0;
+    }
+
+    .banner-content p{
+        font-size:15px;
+    }
+
+    .detail-section{
+        padding:65px 0;
+    }
+
+    .detail-image-box{
+        min-height:330px;
+        padding:25px;
+    }
+
+    .detail-image-box img{
+        max-height:285px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-inner">
+
+        <div class="brand">
+            PT TIRTA INVESTAMA
+        </div>
+
+        <a href="1index.html" class="nav-logo">
+            <img src="Logo AQUA.jpg" alt="Logo AQUA">
+        </a>
+
+        <button
+            class="menu-btn"
+            id="openMenu"
+            type="button"
+            aria-label="Buka menu"
+            aria-controls="sidebar"
+            aria-expanded="false">
+            <i class="bi bi-list"></i>
+        </button>
+
+    </div>
+</header>
+
+<!-- MENU SAMPING -->
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar"
+       aria-label="Navigasi website"
+       aria-hidden="true" inert>
+
+    <div class="sidebar-top">
+
+        <button
+            class="close-btn"
+            id="closeMenu"
+            type="button"
+            aria-label="Tutup menu">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+    </div>
+
+    <nav class="sidebar-links">
+
+        <a href="1index.html">
+            Beranda <span>›</span>
+        </a>
+
+        <a href="2beranda.html">
+            Tentang Kami <span>›</span>
+        </a>
+
+        <a href="3sejarah.html">
+            Sejarah Perusahaan <span>›</span>
+        </a>
+
+        <a href="4produk.html" class="active">
+            Produk Kami <span>›</span>
+        </a>
+
+        <a href="6visimisi.html">
+            Visi dan Misi <span>›</span>
+        </a>
+
+        <a href="7sertifikasi.html">
+            Sertifikasi <span>›</span>
+        </a>
+
+        <a href="8struktural.html">
+            Struktur Organisasi <span>›</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="9lokasi.html">
+            LOKASI PERUSAHAAN <span>›</span>
+        </a>
+
+        <a href="10sosialmedia.html">
+            MEDIA SOSIAL <span>›</span>
+        </a>
+
+        <a href="tel:08001588888">
+            HELP CENTER: 0800-15-88888
+            <i class="bi bi-telephone"></i>
+        </a>
+
+    </div>
+</aside>
+
+<main>
+
+<!-- BANNER DETAIL PRODUK -->
+<section class="page-banner">
+
+    <img
+        class="banner-image"
+        src="gambar gunung.webp"
+        alt="Pemandangan pegunungan dan produk AQUA">
+
+    <div class="banner-overlay"></div>
+
+    <div class="banner-content">
+
+        <span class="banner-label">
+            INFORMASI PRODUK
+        </span>
+
+        <h1>DETAIL PRODUK</h1>
+
+        <p id="bannerDescription">
+            Mengenal pilihan kemasan air minum AQUA
+            untuk berbagai kebutuhan sehari-hari.
+        </p>
+
+        <div class="breadcrumb">
+
+            <a href="1index.html">Beranda</a>
+            &nbsp;›&nbsp;
+
+            <a href="4produk.html">Produk Kami</a>
+            &nbsp;›&nbsp;
+
+            <span id="breadcrumbProduct">Detail Produk</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INFORMASI PRODUK -->
+<section class="detail-section">
+
+    <div class="container">
+
+        <div class="detail-layout">
+
+            <!-- FOTO PRODUK -->
+            <div class="detail-image-box">
+
+                <img
+                    id="productImage"
+                    alt="Gambar produk AQUA">
+
+            </div>
+
+            <!-- DESKRIPSI PRODUK -->
+            <div class="detail-content">
+
+                <span class="detail-label">
+                    PRODUK AIR MINUM AQUA
+                </span>
+
+                <h2 id="productName">
+                    AQUA
+                </h2>
+
+                <p
+                    class="detail-description"
+                    id="productDescription">
+                </p>
+
+                <h3 class="detail-subheading">
+                    Informasi Produk
+                </h3>
+
+                <div class="detail-information">
+
+                    <!-- UKURAN -->
+                    <div class="detail-row">
+
+                        <i class="bi bi-droplet"></i>
+
+                        <div>
+                            <span>Isi Bersih</span>
+                            <strong id="productSize">-</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- JENIS KEMASAN -->
+                    <div class="detail-row">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <div>
+                            <span>Jenis Kemasan</span>
+                            <strong id="productPackaging">-</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- PENGGUNAAN -->
+                    <div class="detail-row">
+
+                        <i class="bi bi-check-circle"></i>
+
+                        <div>
+                            <span>Penggunaan</span>
+                            <strong id="productUsage">-</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- TOMBOL KEMBALI -->
+                <a href="4produk.html" class="back-button">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    KEMBALI KE PRODUK KAMI
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <!-- PROFIL -->
+        <div>
+
+            <h3>PT Tirta Investama</h3>
+
+            <p>
+                Pabrik Keboncandi, Gondang Wetan,
+                Kabupaten Pasuruan, Jawa Timur.
+            </p>
+
+            <p>
+                Informasi profil dan kegiatan perusahaan.
+            </p>
+
+        </div>
+
+        <!-- NAVIGASI -->
+        <div>
+
+            <h3>Navigasi</h3>
+
+            <nav class="footer-nav">
+
+                <a href="1index.html">Beranda</a>
+                <a href="2beranda.html">Tentang Kami</a>
+                <a href="3sejarah.html">Sejarah</a>
+                <a href="4produk.html">Produk</a>
+                <a href="6visimisi.html">Visi Misi</a>
+                <a href="7sertifikasi.html">Sertifikasi</a>
+                <a href="8struktural.html">Struktur Organisasi</a>
+                <a href="9lokasi.html">Lokasi</a>
+                <a href="10sosialmedia.html">Media Sosial</a>
+
+            </nav>
+
+        </div>
+
+        <!-- INFORMASI -->
+        <div>
+
+            <h3>Informasi</h3>
+
+            <p>
+                <i class="bi bi-geo-alt"></i>
+                Keboncandi, Pasuruan
+            </p>
+
+            <a
+                href="tel:08001588888"
+                class="help-link">
+
+                <i class="bi bi-telephone-fill"></i>
+
+                Help Center: 0800-15-88888
+
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* =====================================
+   DATA TUJUH PRODUK AQUA
+===================================== */
+
+const products = {
+
+    /* GELAS 200 ML */
+    "gelas-200": {
+        name: "AQUA Gelas 200 mL",
+        image: "gelas 200ml",
+        size: "200 mL",
+        packaging: "Gelas",
+        usage: "Acara, pertemuan, dan kegiatan bersama",
+        description:
+            "AQUA Gelas 200 mL merupakan air minum dalam " +
+            "kemasan gelas yang praktis digunakan untuk " +
+            "berbagai kegiatan. Ukurannya memudahkan " +
+            "penyajian air minum secara individual dalam " +
+            "pertemuan, acara, maupun aktivitas sehari-hari."
+    },
+
+    /* BOTOL 220 ML */
+    "botol-220": {
+        name: "AQUA Botol 220 mL",
+        image: "220 ml",
+        size: "220 mL",
+        packaging: "Botol plastik",
+        usage: "Aktivitas singkat dan kebutuhan individu",
+        description:
+            "AQUA Botol 220 mL hadir dalam kemasan ringkas " +
+            "yang mudah dibawa dan digunakan. Kapasitas " +
+            "ini sesuai untuk kebutuhan air minum dalam " +
+            "aktivitas singkat atau saat bepergian."
+    },
+
+    /* BOTOL 330 ML */
+    "botol-330": {
+        name: "AQUA Botol 330 mL",
+        image: "330 ml",
+        size: "330 mL",
+        packaging: "Botol plastik",
+        usage: "Aktivitas sehari-hari",
+        description:
+            "AQUA Botol 330 mL merupakan pilihan kemasan " +
+            "air minum dengan ukuran yang praktis. " +
+            "Produk ini dapat digunakan untuk memenuhi " +
+            "kebutuhan air minum saat beraktivitas " +
+            "di rumah maupun di luar ruangan."
+    },
+
+    /* BOTOL 600 ML */
+    "botol-600": {
+        name: "AQUA Botol 600 mL",
+        image: "600 ml",
+        size: "600 mL",
+        packaging: "Botol plastik",
+        usage: "Kegiatan harian dan perjalanan",
+        description:
+            "AQUA Botol 600 mL merupakan salah satu " +
+            "pilihan kemasan praktis untuk menemani " +
+            "aktivitas sehari-hari. Ukurannya memudahkan " +
+            "produk dibawa saat bekerja, belajar, " +
+            "berolahraga, maupun melakukan perjalanan."
+    },
+
+    /* BOTOL 750 ML */
+    "botol-750": {
+        name: "AQUA Botol 750 mL",
+        image: "750 ml",
+        size: "750 mL",
+        packaging: "Botol plastik",
+        usage: "Aktivitas dan perjalanan",
+        description:
+            "AQUA Botol 750 mL menyediakan kapasitas " +
+            "air minum yang lebih besar dalam kemasan " +
+            "botol. Produk ini dapat digunakan untuk " +
+            "menemani berbagai aktivitas serta " +
+            "perjalanan sehari-hari."
+    },
+
+    /* BOTOL 1,5 LITER */
+    "botol-1500": {
+        name: "AQUA 1,5 Liter",
+        image: "1.5 ml",
+        size: "1,5 Liter",
+        packaging: "Botol plastik",
+        usage: "Kebutuhan air minum berkapasitas besar",
+        description:
+            "AQUA 1,5 Liter merupakan pilihan air minum " +
+            "dalam kemasan botol berkapasitas lebih besar. " +
+            "Kemasan ini sesuai untuk kebutuhan air minum " +
+            "yang lebih banyak dalam berbagai kegiatan."
+    },
+
+    /* GALON 19 LITER */
+    "galon-19": {
+        name: "AQUA Galon 19 Liter",
+        image: "galon",
+        size: "19 Liter",
+        packaging: "Galon",
+        usage: "Rumah tangga dan tempat kerja",
+        description:
+            "AQUA Galon 19 Liter merupakan produk air minum " +
+            "dalam kemasan berkapasitas besar. " +
+            "Kemasan ini digunakan untuk memenuhi " +
+            "kebutuhan air minum di rumah, kantor, " +
+            "dan berbagai tempat kegiatan."
+    }
+
+};
+
+/* =====================================
+   MEMBACA PILIHAN PRODUK DARI URL
+===================================== */
+
+const params = new URLSearchParams(window.location.search);
+
+let selectedProduct = params.get("produk") || "botol-600";
+
+/* DUKUNG LINK LAMA */
+const aliases = {
+    "gelas-220": "gelas-200",
+    "galon": "galon-19",
+    "botol-1500ml": "botol-1500",
+    "botol-1.5": "botol-1500"
+};
+
+if (aliases[selectedProduct]) {
+    selectedProduct = aliases[selectedProduct];
+}
+
+const product = products[selectedProduct];
+
+if (!product) {
+    document.getElementById("productName").textContent =
+        "Produk Tidak Ditemukan";
+
+    document.getElementById("productDescription").textContent =
+        "Produk yang dipilih tidak tersedia. " +
+        "Silakan kembali ke halaman Produk Kami.";
+
+    document.querySelector(".detail-image-box").style.display =
+        "none";
+
+    document.querySelector(".detail-information").style.display =
+        "none";
+
+    document.getElementById("breadcrumbProduct").textContent =
+        "Produk Tidak Ditemukan";
+
+} else {
+
+    /* NAMA PRODUK */
+    document.getElementById("productName").textContent =
+        product.name;
+
+    /* DESKRIPSI */
+    document.getElementById("productDescription").textContent =
+        product.description;
+
+    /* UKURAN */
+    document.getElementById("productSize").textContent =
+        product.size;
+
+    /* KEMASAN */
+    document.getElementById("productPackaging").textContent =
+        product.packaging;
+
+    /* PENGGUNAAN */
+    document.getElementById("productUsage").textContent =
+        product.usage;
+
+    /* BREADCRUMB */
+    document.getElementById("breadcrumbProduct").textContent =
+        product.name;
+
+    /* DESKRIPSI BANNER */
+    document.getElementById("bannerDescription").textContent =
+        "Informasi mengenai " + product.name +
+        " dan karakteristik kemasannya.";
+
+    /* JUDUL TAB BROWSER */
+    document.title = product.name + " | PT Tirta Investama";
+
+    /* GAMBAR PRODUK */
+    const imageElement =
+        document.getElementById("productImage");
+
+    const extensions = [
+        ".jpg", ".jpeg", ".png", ".webp", ".jfif",
+        ".JPG", ".JPEG", ".PNG", ".WEBP", ".JFIF"
+    ];
+
+    let imageIndex = 0;
+
+    imageElement.style.visibility = "hidden";
+
+    function tryProductImage() {
+
+        if (imageIndex >= extensions.length) {
+            imageElement.style.display = "none";
+            return;
+        }
+
+        const filename =
+            product.image + extensions[imageIndex++];
+
+        const testImage = new Image();
+
+        testImage.onload = function() {
+
+            imageElement.src = filename;
+            imageElement.alt = product.name;
+            imageElement.style.visibility = "visible";
+
+        };
+
+        testImage.onerror = tryProductImage;
+
+        testImage.src = filename;
+    }
+
+    tryProductImage();
+}
+
+/* =====================================
+   MENU HAMBURGER
+===================================== */
+
+const sidebar =
+    document.getElementById("sidebar");
+
+const overlay =
+    document.getElementById("overlay");
+
+const openBtn =
+    document.getElementById("openMenu");
+
+const closeBtn =
+    document.getElementById("closeMenu");
+
+let previousFocus = null;
+
+function openNav() {
+
+    previousFocus = document.activeElement;
+
+    sidebar.removeAttribute("inert");
+
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
+
+    sidebar.setAttribute("aria-hidden", "false");
+    openBtn.setAttribute("aria-expanded", "true");
+
+    document.body.style.overflow = "hidden";
+
+    closeBtn.focus();
+}
+
+function closeNav() {
+
+    sidebar.classList.remove("show");
+    overlay.classList.remove("show");
+
+    sidebar.setAttribute("aria-hidden", "true");
+    sidebar.setAttribute("inert", "");
+
+    openBtn.setAttribute("aria-expanded", "false");
+
+    document.body.style.overflow = "";
+
+    if (previousFocus) {
+        previousFocus.focus();
+    }
+}
+
+openBtn.addEventListener("click", openNav);
+closeBtn.addEventListener("click", closeNav);
+overlay.addEventListener("click", closeNav);
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Escape" &&
+        sidebar.classList.contains("show")
+    ) {
+        closeNav();
+    }
+
+});
+
+sidebar.addEventListener("keydown", function(event) {
+
+    if (event.key !== "Tab") return;
+
+    const items =
+        sidebar.querySelectorAll("button,a[href]");
+
+    if (!items.length) return;
+
+    const first = items[0];
+    const last = items[items.length - 1];
+
+    if (
+        event.shiftKey &&
+        document.activeElement === first
+    ) {
+        event.preventDefault();
+        last.focus();
+    } else if (
+        !event.shiftKey &&
+        document.activeElement === last
+    ) {
+        event.preventDefault();
+        first.focus();
+    }
+});
+
+</script>
+
+</body>
+</html>
