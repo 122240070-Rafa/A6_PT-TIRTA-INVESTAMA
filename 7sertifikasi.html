@@ -1,935 +1,1074 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sertifikasi | PT Tirta Investama</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-
-<style>
-:root{
-    --light:#C0E6FD;
-    --soft:#80AAD3;
-    --primary:#3F6593;
-    --navy:#1B3554;
-    --dark:#000F22;
-    --bg:#F3F9FD;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{scroll-behavior:smooth}
-
-body{
-    font-family:"Inter",sans-serif;
-    color:var(--navy);
-    line-height:1.8;
-    background:white;
-}
-
-h1,h2,h3,h4{
-    font-family:"Montserrat",sans-serif;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    border:0;
-    background:none;
-    cursor:pointer;
-    font:inherit;
-}
-
-.container{
-    width:90%;
-    max-width:1250px;
-    margin:auto;
-}
-
-/* NAVBAR */
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:white;
-    box-shadow:0 3px 18px rgba(0,15,34,.08);
-}
-
-.nav-inner{
-    max-width:1500px;
-    min-height:95px;
-    margin:auto;
-    padding:10px 5%;
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-    align-items:center;
-    gap:15px;
-}
-
-.brand{
-    font:800 15px "Montserrat",sans-serif;
-    letter-spacing:1px;
-}
-
-.nav-logo{justify-self:center}
-
-.nav-logo img{
-    display:block;
-    width:110px;
-    height:75px;
-    object-fit:contain;
-}
-
-.menu-btn{
-    justify-self:end;
-    color:var(--navy);
-    font-size:35px;
-    line-height:1;
-}
-
-/* MENU HAMBURGER */
-.overlay{
-    position:fixed;
-    inset:0;
-    z-index:1100;
-    background:rgba(0,15,34,.6);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-}
-
-.overlay.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.sidebar{
-    position:fixed;
-    top:0;
-    right:0;
-    z-index:1200;
-    width:480px;
-    max-width:92%;
-    height:100dvh;
-    background:white;
-    overflow-y:auto;
-    transform:translateX(105%);
-    transition:transform .35s ease;
-}
-
-.sidebar.show{transform:translateX(0)}
-
-.sidebar-top{
-    height:100px;
-    padding:20px 35px;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-}
-
-.close-btn{
-    font-size:30px;
-    color:var(--navy);
-}
-
-.sidebar-links{
-    display:flex;
-    flex-direction:column;
-    padding:0 40px 30px;
-}
-
-.sidebar-links a{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    min-height:76px;
-    padding:15px 0;
-    border-bottom:1px solid #E5E7EB;
-    font:700 18px "Montserrat",sans-serif;
-    color:#333;
-}
-
-.sidebar-links a:hover,
-.sidebar-links a.active{
-    color:var(--primary);
-}
-
-.sidebar-bottom{
-    background:var(--navy);
-    padding:22px 40px;
-}
-
-.sidebar-bottom a{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    min-height:67px;
-    border-bottom:1px solid #ffffff40;
-    color:white;
-    font:600 14px "Montserrat",sans-serif;
-}
-
-.sidebar-bottom a:last-child{border:0}
-
-/* BANNER */
-.page-banner{
-    position:relative;
-    min-height:535px;
-    display:flex;
-    align-items:center;
-    background:var(--dark);
-    overflow:hidden;
-}
-
-.banner-image{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.banner-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        rgba(0,15,34,.92),
-        rgba(27,53,84,.72),
-        rgba(63,101,147,.25)
-    );
-}
-
-.banner-content{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:1250px;
-    margin:auto;
-    padding:90px 0;
-    color:white;
-}
-
-.banner-label{
-    display:block;
-    font:700 14px "Montserrat",sans-serif;
-    letter-spacing:3px;
-    color:var(--light);
-}
-
-.banner-content h1{
-    font-size:clamp(37px,5vw,65px);
-    font-weight:900;
-    line-height:1.2;
-    margin:35px 0 38px;
-}
-
-.banner-content p{
-    max-width:760px;
-    font-size:19px;
-    line-height:1.9;
-}
-
-.breadcrumb{
-    margin-top:30px;
-    font-size:15px;
-}
-
-.breadcrumb a{color:var(--light)}
-
-/* SERTIFIKASI */
-.certificate-section{
-    padding:95px 0 110px;
-    background:var(--bg);
-}
-
-.section-heading{
-    text-align:center;
-    max-width:800px;
-    margin:0 auto 55px;
-}
-
-.section-label{
-    display:block;
-    font:700 13px "Montserrat",sans-serif;
-    letter-spacing:3px;
-    color:var(--primary);
-}
-
-.section-title{
-    font-size:clamp(29px,4vw,42px);
-    font-weight:800;
-    line-height:1.3;
-    margin:18px 0 22px;
-}
-
-.section-heading p{
-    font-size:15px;
-    color:#526782;
-}
-
-/* ENAM KARTU */
-.certificate-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:30px;
-}
-
-.certificate-card{
-    display:flex;
-    flex-direction:column;
-    background:white;
-    border:1px solid #DFE8F1;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 8px 27px rgba(0,15,34,.06);
-    transition:.3s;
-}
-
-.certificate-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(0,15,34,.12);
-}
-
-.certificate-image{
-    height:265px;
-    padding:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#F9FCFF,#E5F3FE);
-}
-
-.certificate-image img{
-    display:block;
-    max-width:100%;
-    max-height:205px;
-    object-fit:contain;
-    width:auto;
-    height:auto;
-    transition:transform .3s;
-}
-
-.certificate-card:hover .certificate-image img{
-    transform:scale(1.05);
-}
-
-.certificate-placeholder{
-    display:none;
-    font:800 23px "Montserrat",sans-serif;
-    color:var(--primary);
-    text-align:center;
-}
-
-.certificate-body{
-    flex:1;
-    padding:27px;
-}
-
-.certificate-body h3{
-    font-size:19px;
-    font-weight:800;
-    margin-bottom:14px;
-}
-
-.certificate-body p{
-    font-size:14px;
-    color:#526782;
-    line-height:1.85;
-}
-
-/* FOOTER */
-.footer{
-    background:var(--dark);
-    color:white;
-    padding:52px 5% 35px;
-}
-
-.footer-grid{
-    max-width:1250px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1.2fr .85fr;
-    gap:40px;
-}
-
-.footer h3{
-    font-size:19px;
-    margin-bottom:15px;
-}
-
-.footer p,
-.footer a{
-    color:var(--light);
-    font-size:13px;
-    line-height:1.8;
-}
-
-.footer-nav{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px 17px;
-}
-
-.footer a:hover{color:white}
-
-.help-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:12px;
-}
-
-/* RESPONSIVE */
-@media(max-width:950px){
-    .certificate-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:650px){
-    .nav-inner{
-        min-height:75px;
-        padding:8px 18px;
-    }
-
-    .brand{
-        font-size:10px;
-        max-width:120px;
-    }
-
-    .nav-logo img{
-        width:85px;
-        height:60px;
-    }
-
-    .menu-btn{font-size:30px}
-    .sidebar-links{padding:0 25px 25px}
-    .sidebar-links a{font-size:16px;min-height:70px}
-    .sidebar-bottom{padding:20px 25px}
-
-    .page-banner{min-height:350px}
-    .banner-content{padding:65px 0}
-    .banner-content h1{margin:25px 0}
-    .banner-content p{font-size:15px}
-
-    .certificate-section{padding:65px 0}
-    .certificate-grid{grid-template-columns:1fr}
-    .certificate-image{height:240px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikasi | PT Tirta Investama</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #193b5e;
+            --primary: #286ba6;
+            --bg: #f2f8fd;
+            --text: #526b85;
+            --border: #e2e9f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Sora", sans-serif;
+            background: #fff;
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ================================
+           HEADER PUTIH
+        ================================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            width: 100%;
+            min-height: 103px;
+            padding: 0 5% 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            display: block;
+            width: 140px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            font-family: "Montserrat", sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+
+        .nav-links > a,
+        .dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 8px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--navy);
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .nav-links > a:hover,
+        .nav-links > a.active,
+        .dropdown-toggle:hover,
+        .dropdown-toggle.active,
+        .dropdown-toggle[aria-expanded="true"] {
+            color: var(--primary);
+        }
+
+        /* ================================
+           DROPDOWN
+        ================================= */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 240px;
+            padding: 9px 0;
+            background: white;
+            border: 1px solid #e0eaf2;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(0,20,50,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: 0.2s;
+            z-index: 1100;
+        }
+
+        .dropdown.open .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 18px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--primary);
+            background: var(--bg);
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--navy);
+            font-size: 28px;
+        }
+
+        /* ================================
+           GAMBAR HEADER SERTIFIKASI
+
+           HANYA FOTO ASLI.
+           TANPA TEKS TAMBAHAN.
+        ================================= */
+
+        .sertifikasi-banner {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .sertifikasi-banner img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .banner-warning {
+            display: none;
+            max-width: 900px;
+            margin: 28px auto;
+            padding: 20px;
+            border: 1px solid #dce7f1;
+            border-radius: 8px;
+            font-family: "Sora", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--navy);
+            text-align: center;
+        }
+
+        /* ================================
+           KONTEN SERTIFIKASI
+        ================================= */
+
+        .sertifikasi-section {
+            padding: 65px 5% 85px;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(30px, 3.5vw, 42px);
+            font-weight: 800;
+            line-height: 1.3;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 45px;
+        }
+
+        /* ================================
+           KARTU SERTIFIKASI
+        ================================= */
+
+        .sertifikasi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        .sertifikasi-card {
+            background: white;
+            border: 1px solid #dce7f1;
+            border-radius: 12px;
+            padding: 30px 25px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .sertifikasi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(25,59,94,0.07);
+        }
+
+        .sertifikasi-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 170px;
+            margin-bottom: 22px;
+            background: white;
+        }
+
+        .sertifikasi-image img {
+            display: block;
+            max-width: 100%;
+            max-height: 160px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .sertifikasi-card h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.4;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+
+        .sertifikasi-card p {
+            font-family: "Sora", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text);
+            text-align: justify;
+            text-justify: inter-word;
+            width: 100%;
+        }
+
+        /* ================================
+           FOOTER - SORA
+        ================================= */
+
+        .footer {
+            background: var(--navy);
+            color: #fff;
+            padding: 60px 5% 55px;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.3fr 0.85fr;
+            gap: 55px;
+        }
+
+        .footer h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 25px;
+        }
+
+        .footer p,
+        .footer a {
+            font-family: "Sora", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #e1eaf3;
+        }
+
+        .footer p {
+            text-align: justify;
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 30px;
+        }
+
+        .footer-nav a {
+            display: block;
+        }
+
+        .footer-nav a:hover,
+        .footer-info a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-info p {
+            text-align: left;
+        }
+
+        .footer-info i {
+            margin-right: 8px;
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 1250px) {
+            .brand img {
+                width: 115px;
+            }
+
+            .brand-text {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                gap: 5px;
+            }
+
+            .nav-links > a,
+            .dropdown-toggle {
+                font-size: 13px;
+                padding: 12px 6px;
+            }
+
+            .footer-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 1050px) {
+            .nav-inner {
+                min-height: 85px;
+                padding: 10px 4%;
+                flex-wrap: wrap;
+            }
+
+            .mobile-toggle {
+                display: block;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                margin: 0;
+                gap: 0;
+                padding: 12px 0;
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links > a,
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                padding: 13px 10px;
+                font-size: 14px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                border-left: 3px solid #d9eaf7;
+                border-radius: 0;
+                margin-left: 12px;
+                padding: 0;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .sertifikasi-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-inner {
+                padding: 10px 15px;
+            }
+
+            .brand {
+                gap: 8px;
+            }
+
+            .brand img {
+                width: 75px;
+                height: 55px;
+            }
+
+            .brand-text {
+                font-size: 12px;
+                white-space: normal;
+            }
+
+            .sertifikasi-section {
+                padding: 45px 5% 65px;
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+            }
+
+            .sertifikasi-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .sertifikasi-card {
+                padding: 28px 23px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-    <div class="nav-inner">
+    <!-- ================================
+         HEADER PUTIH
+    ================================= -->
 
-        <div class="brand">
-            PT TIRTA INVESTAMA
-        </div>
+    <header class="navbar">
+        <div class="nav-inner">
 
-        <a href="index.html" class="nav-logo">
-            <img src="Logo AQUA.jpg" alt="Logo AQUA">
-        </a>
+            <a href="index.html" class="brand">
+                <img
+                    id="logoHeader"
+                    src="Logo AQUA.jpg"
+                    alt="Logo AQUA">
 
-        <button
-            class="menu-btn"
-            id="openMenu"
-            type="button"
-            aria-label="Buka menu"
-            aria-controls="sidebar"
-            aria-expanded="false">
-            <i class="bi bi-list"></i>
-        </button>
+                <span class="brand-text">
+                    PT TIRTA INVESTAMA
+                </span>
+            </a>
 
-    </div>
-</header>
+            <button
+                class="mobile-toggle"
+                id="mobileToggle"
+                type="button"
+                aria-label="Buka menu navigasi"
+                aria-controls="navLinks"
+                aria-expanded="false">
+                <i class="bi bi-list"></i>
+            </button>
 
-<!-- MENU HAMBURGER -->
-<div class="overlay" id="overlay"></div>
+            <nav
+                class="nav-links"
+                id="navLinks"
+                aria-label="Navigasi utama">
 
-<aside
-    class="sidebar"
-    id="sidebar"
-    aria-label="Navigasi website"
-    aria-hidden="true"
-    inert>
+                <a href="index.html">
+                    Beranda
+                </a>
 
-    <div class="sidebar-top">
-        <button
-            class="close-btn"
-            id="closeMenu"
-            type="button"
-            aria-label="Tutup menu">
-            <i class="bi bi-x-lg"></i>
-        </button>
-    </div>
+                <div class="dropdown">
+                    <button
+                        class="dropdown-toggle"
+                        type="button"
+                        aria-expanded="false">
 
-    <nav class="sidebar-links">
-        <a href="index.html">
-            Beranda <span>›</span>
-        </a>
+                        Tentang Perusahaan
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
 
-        <a href="2beranda.html">
-            Tentang Kami <span>›</span>
-        </a>
+                    <div class="dropdown-menu">
+                        <a href="2beranda.html">
+                            Tentang Kami
+                        </a>
 
-        <a href="3sejarah.html">
-            Sejarah Perusahaan <span>›</span>
-        </a>
+                        <a href="3sejarah.html">
+                            Sejarah Perusahaan
+                        </a>
 
-        <a href="4produk.html">
-            Produk Kami <span>›</span>
-        </a>
+                        <a href="6visimisi.html">
+                            Visi dan Misi
+                        </a>
 
-        <a href="6visimisi.html">
-            Visi dan Misi <span>›</span>
-        </a>
+                        <a href="8struktural.html">
+                            Struktur Organisasi
+                        </a>
 
-        <a href="7sertifikasi.html" class="active" aria-current="page">
-            Sertifikasi <span>›</span>
-        </a>
-
-        <a href="8struktural.html">
-            Struktur Organisasi <span>›</span>
-        </a>
-    </nav>
-
-    <div class="sidebar-bottom">
-        <a href="9lokasi.html">
-            LOKASI PERUSAHAAN <span>›</span>
-        </a>
-
-        <a href="10sosialmedia.html">
-            MEDIA SOSIAL <span>›</span>
-        </a>
-
-        <a href="tel:08001588888">
-            HELP CENTER: 0800-15-88888
-            <i class="bi bi-telephone"></i>
-        </a>
-    </div>
-
-</aside>
-
-<main>
-
-<!-- BANNER -->
-<section class="page-banner">
-
-    <img
-        class="banner-image"
-        src="gambar gunung.webp"
-        alt="Pemandangan pegunungan dan produk AQUA">
-
-    <div class="banner-overlay"></div>
-
-    <div class="banner-content">
-
-        <span class="banner-label">
-            STANDAR DAN PENGENDALIAN MUTU
-        </span>
-
-        <h1>SERTIFIKASI</h1>
-
-        <p>
-            Mengenal standar mutu, keamanan pangan,
-            dan pengelolaan lingkungan
-            yang berkaitan dengan AQUA.
-        </p>
-
-        <div class="breadcrumb">
-            <a href="index.html">Beranda</a>
-            &nbsp;›&nbsp;
-            Sertifikasi
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ENAM SERTIFIKASI -->
-<section class="certificate-section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                SERTIFIKASI AQUA
-            </span>
-
-            <h2 class="section-title">
-                Sertifikasi dan Standar AQUA
-            </h2>
-
-            <p>
-                Enam sertifikasi dan sistem mutu
-                yang disebutkan dalam riwayat AQUA.
-            </p>
-
-        </div>
-
-        <div class="certificate-grid">
-
-            <!-- 1. HALAL -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="logo halal"
-                        alt="Logo sertifikasi halal">
-
-                    <span class="certificate-placeholder">
-                        HALAL
-                    </span>
+                        <a href="9lokasi.html">
+                            Lokasi Perusahaan
+                        </a>
+                    </div>
                 </div>
 
-                <div class="certificate-body">
+                <a href="4produk.html">
+                    Produk Kami
+                </a>
 
-                    <h3>Sertifikasi Halal dan SJH</h3>
+                <a
+                    href="7sertifikasi.html"
+                    class="active"
+                    aria-current="page">
+                    Sertifikasi
+                </a>
 
-                    <p>
-                        Sertifikasi halal dan Sistem
-                        Jaminan Halal berkaitan dengan
-                        pemenuhan persyaratan halal
-                        dalam kegiatan produksi.
-                    </p>
+                <a href="10sosialmedia.html">
+                    Media Sosial
+                </a>
 
-                </div>
-
-            </article>
-
-            <!-- 2. ISO 9001 -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="iso 19001"
-                        alt="Logo ISO 9001">
-
-                    <span class="certificate-placeholder">
-                        ISO 9001
-                    </span>
-                </div>
-
-                <div class="certificate-body">
-
-                    <h3>ISO 9001:2000</h3>
-
-                    <p>
-                        Standar sistem manajemen mutu
-                        yang mendukung pengendalian
-                        kualitas dan konsistensi proses.
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- 3. ISO 14001 -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="iso 14001"
-                        alt="Logo ISO 14001">
-
-                    <span class="certificate-placeholder">
-                        ISO 14001
-                    </span>
-                </div>
-
-                <div class="certificate-body">
-
-                    <h3>ISO 14001</h3>
-
-                    <p>
-                        Standar sistem manajemen
-                        lingkungan yang berkaitan
-                        dengan pengelolaan dampak
-                        lingkungan perusahaan.
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- 4. HACCP -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="haccp"
-                        alt="Logo HACCP">
-
-                    <span class="certificate-placeholder">
-                        HACCP
-                    </span>
-                </div>
-
-                <div class="certificate-body">
-
-                    <h3>HACCP</h3>
-
-                    <p>
-                        Sistem pengendalian keamanan
-                        pangan untuk mengidentifikasi
-                        dan mengendalikan potensi
-                        bahaya dalam proses produksi.
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- 5. GMP -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="gmp"
-                        alt="Logo GMP">
-
-                    <span class="certificate-placeholder">
-                        GMP
-                    </span>
-                </div>
-
-                <div class="certificate-body">
-
-                    <h3>GMP Danone 2005</h3>
-
-                    <p>
-                        Good Manufacturing Practices
-                        merupakan pedoman penerapan
-                        praktik produksi yang baik
-                        dalam industri pangan.
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- 6. NSF -->
-            <article class="certificate-card">
-
-                <div class="certificate-image">
-                    <img
-                        data-logo="nsf"
-                        alt="Logo NSF">
-
-                    <span class="certificate-placeholder">
-                        NSF
-                    </span>
-                </div>
-
-                <div class="certificate-body">
-
-                    <h3>NSF</h3>
-
-                    <p>
-                        National Sanitation Foundation
-                        berkaitan dengan standar
-                        kualitas, sanitasi, dan
-                        keamanan dalam industri.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-    <div class="footer-grid">
-
-        <div>
-            <h3>PT Tirta Investama</h3>
-
-            <p>
-                Pabrik Keboncandi, Gondang Wetan,
-                Kabupaten Pasuruan, Jawa Timur.
-            </p>
-
-            <p>
-                Informasi profil dan kegiatan perusahaan.
-            </p>
-        </div>
-
-        <div>
-            <h3>Navigasi</h3>
-
-            <nav class="footer-nav">
-                <a href="index.html">Beranda</a>
-                <a href="2beranda.html">Tentang Kami</a>
-                <a href="3sejarah.html">Sejarah</a>
-                <a href="4produk.html">Produk</a>
-                <a href="6visimisi.html">Visi Misi</a>
-                <a href="7sertifikasi.html">Sertifikasi</a>
-                <a href="8struktural.html">Struktur Organisasi</a>
-                <a href="9lokasi.html">Lokasi</a>
-                <a href="10sosialmedia.html">Media Sosial</a>
             </nav>
         </div>
+    </header>
 
-        <div>
-            <h3>Informasi</h3>
+    <main>
 
-            <p>
-                <i class="bi bi-geo-alt"></i>
-                Keboncandi, Pasuruan
-            </p>
+        <!-- ================================
+             BANNER SERTIFIKASI
 
-            <a href="tel:08001588888" class="help-link">
-                <i class="bi bi-telephone-fill"></i>
-                Help Center: 0800-15-88888
-            </a>
+             GAMBAR ASLI DARI FOLDER:
+             assets/img/sertifikasi
+
+             TIDAK ADA TULISAN TAMBAHAN
+        ================================= -->
+
+        <section class="sertifikasi-banner">
+
+            <img
+                id="bannerSertifikasi"
+                src="assets/img/sertifikasi.jpg"
+                alt="Banner Sertifikasi"
+                fetchpriority="high">
+
+            <div id="pesanBanner" class="banner-warning">
+                Gambar header Sertifikasi belum ditemukan.
+                Pastikan file gambar bernama
+                <strong>sertifikasi</strong>
+                berada di folder
+                <strong>assets/img</strong>
+                dan periksa ekstensi aslinya.
+            </div>
+
+        </section>
+
+        <!-- ================================
+             ISI SERTIFIKASI
+        ================================= -->
+
+        <section class="sertifikasi-section">
+            <div class="container">
+
+                <h1 class="section-title">
+                    Sertifikasi
+                </h1>
+
+                <div class="sertifikasi-grid">
+
+                    <!-- NSF -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarNSF"
+                                src="nsf.png"
+                                alt="Logo NSF">
+                        </div>
+
+                        <h3>NSF</h3>
+
+                        <p>
+                            NSF merupakan lembaga yang
+                            mengembangkan standar dan program
+                            sertifikasi terkait kesehatan
+                            masyarakat, keselamatan produk,
+                            serta persyaratan kualitas tertentu.
+                        </p>
+                    </article>
+
+                    <!-- GMP -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarGMP"
+                                src="gmp.png"
+                                alt="Logo GMP">
+                        </div>
+
+                        <h3>GMP</h3>
+
+                        <p>
+                            Good Manufacturing Practices
+                            (GMP) merupakan prinsip praktik
+                            produksi yang baik. Prinsip ini
+                            berkaitan dengan kebersihan,
+                            pengendalian proses, dan
+                            konsistensi kualitas produk.
+                        </p>
+                    </article>
+
+                    <!-- HACCP -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarHACCP"
+                                src="haccp.png"
+                                alt="Logo HACCP">
+                        </div>
+
+                        <h3>HACCP</h3>
+
+                        <p>
+                            Hazard Analysis and Critical
+                            Control Points (HACCP) adalah
+                            sistem yang digunakan untuk
+                            mengidentifikasi, mengevaluasi,
+                            dan mengendalikan bahaya yang
+                            dapat memengaruhi keamanan pangan.
+                        </p>
+                    </article>
+
+                    <!-- ISO 14001 -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarISO14001"
+                                src="iso 14001.png"
+                                alt="Logo ISO 14001">
+                        </div>
+
+                        <h3>ISO 14001</h3>
+
+                        <p>
+                            ISO 14001 merupakan standar
+                            internasional untuk sistem
+                            manajemen lingkungan yang
+                            membantu organisasi mengelola
+                            aspek lingkungan serta meningkatkan
+                            kinerja pengelolaan lingkungan.
+                        </p>
+                    </article>
+
+                    <!-- ISO 9001 -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarISO9001"
+                                src="iso 19001.png"
+                                alt="Logo ISO 9001">
+                        </div>
+
+                        <h3>ISO 9001</h3>
+
+                        <p>
+                            ISO 9001 merupakan standar
+                            internasional untuk sistem
+                            manajemen mutu yang berfokus pada
+                            konsistensi proses, pemenuhan
+                            persyaratan, dan peningkatan kualitas.
+                        </p>
+                    </article>
+
+                    <!-- HALAL -->
+
+                    <article class="sertifikasi-card">
+                        <div class="sertifikasi-image">
+                            <img
+                                id="gambarHalal"
+                                src="logo halal.png"
+                                alt="Logo Halal Indonesia">
+                        </div>
+
+                        <h3>Sertifikasi Halal</h3>
+
+                        <p>
+                            Sertifikasi halal berkaitan
+                            dengan pemenuhan persyaratan
+                            kehalalan produk dan proses
+                            produksi, sesuai ketentuan
+                            jaminan produk halal yang
+                            berlaku di Indonesia.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <div>
+                    <h3>PT TIRTA INVESTAMA</h3>
+
+                    <p>
+                        Pabrik Keboncandi,
+                        Kecamatan Gondang Wetan,
+                        Kabupaten Pasuruan,
+                        Jawa Timur.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>NAVIGASI</h3>
+
+                    <div class="footer-nav">
+                        <a href="index.html">Beranda</a>
+                        <a href="2beranda.html">Tentang Kami</a>
+                        <a href="3sejarah.html">Sejarah</a>
+                        <a href="4produk.html">Produk</a>
+                        <a href="6visimisi.html">Visi dan Misi</a>
+                        <a href="7sertifikasi.html">Sertifikasi</a>
+                        <a href="8struktural.html">Struktur Organisasi</a>
+                        <a href="9lokasi.html">Lokasi Perusahaan</a>
+                        <a href="10sosialmedia.html">Media Sosial</a>
+                    </div>
+                </div>
+
+                <div class="footer-info">
+                    <h3>INFORMASI</h3>
+
+                    <p>
+                        <i class="bi bi-telephone-fill"></i>
+
+                        <a href="tel:08001588888">
+                            Help Center: 0800-15-88888
+                        </a>
+                    </p>
+                </div>
+
+            </div>
         </div>
+    </footer>
 
-    </div>
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
 
-</footer>
+    <script>
 
-<script>
-/* GAMBAR SESUAI NAMA FILE DALAM FOLDER */
-const extensions=[
-    ".png",".jpg",".jpeg",".webp",".svg",".jfif",
-    ".PNG",".JPG",".JPEG",".WEBP",".SVG",".JFIF"
-];
+        /*
+           FUNGSI MEMUAT GAMBAR
+           DENGAN BEBERAPA PILIHAN FORMAT.
+        */
 
-const logoAliases={
-    "logo halal":["logo halal","halal"],
-    "iso 19001":["iso 19001","iso 9001","iso9001"],
-    "iso 14001":["iso 14001","iso14001"],
-    "haccp":["haccp"],
-    "gmp":["gmp"],
-    "nsf":["nsf"]
-};
+        function cobaGambar(id, daftarFile, idPesan = null) {
 
-function loadCertificateImage(img){
-    const base=img.dataset.logo;
-    const names=logoAliases[base]||[base];
-    const candidates=[];
+            const gambar = document.getElementById(id);
 
-    names.forEach(name=>{
-        extensions.forEach(ext=>{
-            candidates.push(name+ext);
-        });
-    });
-
-    let index=0;
-    img.style.visibility="hidden";
-
-    function tryNext(){
-        if(index>=candidates.length){
-            img.style.display="none";
-
-            const placeholder=img.parentElement.querySelector(
-                ".certificate-placeholder"
-            );
-
-            if(placeholder){
-                placeholder.style.display="block";
+            if (!gambar || daftarFile.length === 0) {
+                return;
             }
-            return;
+
+            let posisi = 0;
+
+            gambar.onload = function () {
+                gambar.style.display = "block";
+
+                if (idPesan) {
+                    const pesan =
+                        document.getElementById(idPesan);
+
+                    if (pesan) {
+                        pesan.style.display = "none";
+                    }
+                }
+            };
+
+            gambar.onerror = function () {
+
+                posisi++;
+
+                if (posisi < daftarFile.length) {
+
+                    gambar.src = daftarFile[posisi];
+
+                } else {
+
+                    gambar.onerror = null;
+                    gambar.style.display = "none";
+
+                    if (idPesan) {
+
+                        const pesan =
+                            document.getElementById(idPesan);
+
+                        if (pesan) {
+                            pesan.style.display = "block";
+                        }
+
+                    }
+
+                }
+
+            };
+
+            gambar.src = daftarFile[0];
         }
 
-        const filename=candidates[index++];
-        const test=new Image();
+        /* LOGO HEADER */
 
-        test.onload=()=>{
-            img.src=filename;
-            img.style.visibility="visible";
-        };
+        cobaGambar("logoHeader", [
+            "Logo AQUA.jpg",
+            "Logo AQUA.png",
+            "Logo AQUA.jpeg",
+            "logo aqua without danone.png",
+            "logo aqua without danone.jpg"
+        ]);
 
-        test.onerror=tryNext;
-        test.src=filename;
-    }
+        /*
+           GAMBAR BANNER SERTIFIKASI
 
-    tryNext();
-}
+           Lokasi berdasarkan screenshot:
+           Sailor/Sailor/assets/img/sertifikasi
 
-document.querySelectorAll(
-    ".certificate-image img"
-).forEach(loadCertificateImage);
+           Windows menyembunyikan ekstensi.
+           Karena itu kode mencoba banyak format.
+        */
 
-/* MENU HAMBURGER */
-const sidebar=document.getElementById("sidebar");
-const overlay=document.getElementById("overlay");
-const openBtn=document.getElementById("openMenu");
-const closeBtn=document.getElementById("closeMenu");
-let previousFocus=null;
+        cobaGambar("bannerSertifikasi", [
+            "assets/img/sertifikasi.jpg",
+            "assets/img/sertifikasi.jpeg",
+            "assets/img/sertifikasi.png",
+            "assets/img/sertifikasi.webp",
+            "assets/img/sertifikasi.jfif",
+            "assets/img/sertifikasi.avif",
+            "assets/img/sertifikasi.gif",
+            "assets/img/sertifikasi.bmp",
+            "assets/img/sertifikasi.svg",
+            "assets/img/sertifikasi.JPG",
+            "assets/img/sertifikasi.JPEG",
+            "assets/img/sertifikasi.PNG",
+            "assets/img/sertifikasi.WEBP",
+            "assets/img/sertifikasi.JFIF",
+            "assets/img/sertifikasi",
+            "assets/img/Sertifikasi.jpg",
+            "assets/img/Sertifikasi.png",
+            "assets/img/Sertifikasi.jpeg",
+            "assets/img/Sertifikasi.webp"
+        ], "pesanBanner");
 
-function openNav(){
-    previousFocus=document.activeElement;
-    sidebar.removeAttribute("inert");
-    sidebar.classList.add("show");
-    overlay.classList.add("show");
-    sidebar.setAttribute("aria-hidden","false");
-    openBtn.setAttribute("aria-expanded","true");
-    document.body.style.overflow="hidden";
-    closeBtn.focus();
-}
+        /* ENAM LOGO SERTIFIKASI */
 
-function closeNav(){
-    sidebar.classList.remove("show");
-    overlay.classList.remove("show");
-    sidebar.setAttribute("aria-hidden","true");
-    sidebar.setAttribute("inert","");
-    openBtn.setAttribute("aria-expanded","false");
-    document.body.style.overflow="";
-    if(previousFocus)previousFocus.focus();
-}
+        cobaGambar("gambarNSF", [
+            "nsf.png",
+            "nsf.jpg",
+            "nsf.jpeg",
+            "nsf.webp",
+            "nsf.jfif"
+        ]);
 
-openBtn.addEventListener("click",openNav);
-closeBtn.addEventListener("click",closeNav);
-overlay.addEventListener("click",closeNav);
+        cobaGambar("gambarGMP", [
+            "gmp.png",
+            "gmp.jpg",
+            "gmp.jpeg",
+            "gmp.webp",
+            "gmp.jfif"
+        ]);
 
-document.addEventListener("keydown",e=>{
-    if(e.key==="Escape"&&sidebar.classList.contains("show")){
-        closeNav();
-    }
-});
+        cobaGambar("gambarHACCP", [
+            "haccp.png",
+            "haccp.jpg",
+            "haccp.jpeg",
+            "haccp.webp",
+            "haccp.jfif"
+        ]);
 
-sidebar.addEventListener("keydown",e=>{
-    if(e.key!=="Tab")return;
-    const items=sidebar.querySelectorAll("button,a[href]");
-    if(!items.length)return;
+        cobaGambar("gambarISO14001", [
+            "iso 14001.png",
+            "iso 14001.jpg",
+            "iso 14001.jpeg",
+            "iso 14001.webp",
+            "iso 14001.jfif"
+        ]);
 
-    const first=items[0];
-    const last=items[items.length-1];
+        cobaGambar("gambarISO9001", [
+            "iso 19001.png",
+            "iso 19001.jpg",
+            "iso 19001.jpeg",
+            "iso 19001.webp",
+            "iso 9001.png",
+            "iso 9001.jpg",
+            "iso 9001.jpeg",
+            "iso 9001.webp"
+        ]);
 
-    if(e.shiftKey&&document.activeElement===first){
-        e.preventDefault();last.focus();
-    }else if(!e.shiftKey&&document.activeElement===last){
-        e.preventDefault();first.focus();
-    }
-});
-</script>
+        cobaGambar("gambarHalal", [
+            "logo halal.png",
+            "logo halal.jpg",
+            "logo halal.jpeg",
+            "logo halal.webp",
+            "logo halal.jfif"
+        ]);
+
+        /* MENU MOBILE */
+
+        const mobileToggle =
+            document.getElementById("mobileToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        mobileToggle.addEventListener("click", function () {
+
+            const terbuka =
+                navLinks.classList.toggle("show");
+
+            mobileToggle.setAttribute(
+                "aria-expanded",
+                String(terbuka)
+            );
+
+            mobileToggle.innerHTML = terbuka
+                ? '<i class="bi bi-x-lg"></i>'
+                : '<i class="bi bi-list"></i>';
+
+        });
+
+        /* DROPDOWN */
+
+        const dropdowns =
+            document.querySelectorAll(".dropdown");
+
+        function tutupDropdown() {
+
+            dropdowns.forEach(function (dropdown) {
+
+                dropdown.classList.remove("open");
+
+                dropdown.querySelector(".dropdown-toggle")
+                    .setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+            });
+
+        }
+
+        dropdowns.forEach(function (dropdown) {
+
+            const tombol =
+                dropdown.querySelector(".dropdown-toggle");
+
+            tombol.addEventListener("click", function () {
+
+                const buka =
+                    !dropdown.classList.contains("open");
+
+                tutupDropdown();
+
+                dropdown.classList.toggle("open", buka);
+
+                tombol.setAttribute(
+                    "aria-expanded",
+                    String(buka)
+                );
+
+            });
+
+        });
+
+        document.addEventListener("click", function (event) {
+
+            if (!event.target.closest(".dropdown")) {
+                tutupDropdown();
+            }
+
+        });
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                tutupDropdown();
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
